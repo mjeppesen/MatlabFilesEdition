@@ -15,7 +15,11 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-syn keyword matlabStatement		return function
+
+syn region matlabFunctionDefinition start='\(function\s\+\w\+\s\+=\s\+\)\@<=\w\+' end='('me=e-2
+
+
+syn keyword matlabStatement		return
 syn keyword matlabConditional		switch case else elseif end if otherwise break continue
 syn keyword matlabRepeat		do for while
 syn keyword matlabStorageClass		classdef methods properties events persistent global
@@ -338,6 +342,7 @@ if version >= 508 || !exists("did_matlab_syntax_inits")
   HiLink matlabImport			Include
   HiLink matlabBoolean			Boolean
   HiLink matlabStorageClass		StorageClass
+  HiLink matlabFunctionDefinition		Type
 
   HiLink matlabArithmeticOperator	matlabOperator
   HiLink matlabRelationalOperator	matlabOperator
