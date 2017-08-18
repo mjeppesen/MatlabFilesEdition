@@ -16,7 +16,7 @@ elseif exists("b:current_syntax")
 endif
 
 
-syn region matlabFunctionDefinition start='\(function\s\+\w\+\s\+=\s\+\)\@<=\w\+' end='('me=e-2
+syn region matlabFunctionDefinition start='\v(function(\s+\w+\s+\=)=\s+)@<=\w+' end='('me=e-1
 
 
 syn keyword matlabStatement		return
